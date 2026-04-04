@@ -14,4 +14,5 @@ df_tips = sns.load_dataset("tips")
 print(df_tips.head())
 df_tips.info()
 
-#
+#Part 1
+#Creating a figure with 2 areas
