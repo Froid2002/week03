@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 
-# Create week04 directory if it doesn't exist to avoid errors
+#Create week04 directory if it doesn't exist to avoid errors
 if not os.path.exists('./week04'):
     os.makedirs('./week04')
 
@@ -12,11 +12,11 @@ if not os.path.exists('./week04'):
 # I am using the standard 'tips' data for this practice
 df_tips = sns.load_dataset('tips')
 
-# Check the first few rows to see the data structure
+#Check the first few rows to see the data structure
 print(df_tips.head())
 df_tips.info()
 
-# --- PART 1: Categorical Plots ---
+#PART 1: Categorical Plots
 # Creating a figure with 2 areas (subplots)
 my_fig1 = plt.figure(figsize=(15, 5))
 plot1 = my_fig1.add_subplot(1, 2, 1)
