@@ -37,8 +37,8 @@ housing_features = train_set.drop("median_house_value", axis=1)
 housing_target = train_set["median_house_value"].copy()
 
 
-# 3. Data Cleaning (Handling Missing Values)
-# Checking which rows have null/NaN values
+#3. Data Cleaning (Handling Missing Values)
+#Checking which rows have null/NaN values
 missing_data_rows = housing_features.isnull().any(axis=1)
 print("Rows with missing values:")
 print(housing_features.loc[missing_data_rows].head())
