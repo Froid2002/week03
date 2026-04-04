@@ -15,4 +15,5 @@ print(df_tips.head())
 df_tips.info()
 
 #Part 1
-#Creating a figure with 2 areas
+#Creating a figure with 2 areas (Subplots)
+my_fig
