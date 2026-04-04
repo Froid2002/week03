@@ -22,27 +22,27 @@ my_fig1 = plt.figure(figsize=(15, 5))
 plot1 = my_fig1.add_subplot(1, 2, 1)
 plot2 = my_fig1.add_subplot(1, 2, 2)
 
-# Drawing stripplot to see the points by day
+#Drawing stripplot to see the points by day
 sns.stripplot(x='day', y='tip', hue='sex', data=df_tips, alpha=0.6, ax=plot1)
 
-# Swarmplot is similar but points don't overlap too much
+#Swarmplot is similar but points don't overlap too much
 sns.swarmplot(x='day', y='tip', hue='sex', data=df_tips, palette='muted', alpha=0.7, ax=plot2)
 
-# Adding titles to understand each plot
+#Adding titles to understand each plot
 plot1.set_title('Strip Plot: Tips vs Day')
 plot2.set_title('Swarm Plot: Tips vs Day')
 plt.savefig('./week04/Seaborn_Figure01.jpg')
 
 
-# --- PART 2: Frequency Plots (Counting) ---
+#PART 2: Frequency Plots (Counting)
 my_fig2 = plt.figure(figsize=(15, 5))
 count_ax1 = my_fig2.add_subplot(1, 2, 1)
 count_ax2 = my_fig2.add_subplot(1, 2, 2)
 
-# Just counting how many tips per time (Lunch or Dinner)
+#Just counting how many tips per time (Lunch or Dinner)
 sns.countplot(x='time', data=df_tips, ax=count_ax1)
 
-# Counting time but also separating by day with different colors
+#Counting time but also separating by day with different colors
 sns.countplot(x='time', hue='day', data=df_tips, palette='pastel', ax=count_ax2)
 
 count_ax1.set_title('Simple Count by Time')
@@ -50,7 +50,7 @@ count_ax2.set_title('Count by Time and Day')
 plt.savefig('./week04/Seaborn_Figure02.jpg')
 
 
-# --- PART 3: Regression Plots ---
+#PART 3: Regression Plots
 my_fig3 = plt.figure(figsize=(15, 5))
 reg_ax1 = my_fig3.add_subplot(1, 2, 1)
 reg_ax2 = my_fig3.add_subplot(1, 2, 2)
