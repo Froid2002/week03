@@ -55,7 +55,7 @@ my_fig3 = plt.figure(figsize=(15, 5))
 reg_ax1 = my_fig3.add_subplot(1, 2, 1)
 reg_ax2 = my_fig3.add_subplot(1, 2, 2)
 
-# Plotting the bill vs tip with a trend line
+#Plotting the bill vs tip with a trend line
 sns.regplot(x='total_bill', y='tip', data=df_tips, color='green', scatter_kws={'s': 40, 'alpha': 0.4}, ax=reg_ax1)
 
 # Same plot but without the trend line (fit_reg=False)
@@ -65,7 +65,7 @@ my_fig3.suptitle('Checking Relation between Bill and Tips', fontsize=14)
 plt.savefig('./week04/Seaborn_Figure03.jpg')
 
 
-# --- PART 4: Distribution Plot ---
+#PART 4: Distribution Plot
 plt.figure()
 # Using histplot to see the distribution of tips
 sns.histplot(df_tips['tip'], bins=25, kde=True, color='orange')
@@ -73,12 +73,12 @@ plt.title('Distribution of Tip Amounts')
 plt.savefig('./week04/Seaborn_Figure04.jpg')
 
 
-# --- PART 5: Joint and Pair Plots ---
+#PART 5: Joint and Pair Plots
 # Joint plot shows scatter and histogram together
 sns.jointplot(x='size', y='tip', data=df_tips, kind='reg', color='purple')
 plt.savefig('./week04/Seaborn_Figure05.jpg')
 
-# Pairplot shows relations between all numeric columns
+#Pairplot shows relations between all numeric columns
 sns.pairplot(data=df_tips, hue='sex', palette='Set1')
 plt.savefig('./week04/Seaborn_Figure06.jpg')
 
