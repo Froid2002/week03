@@ -4,4 +4,4 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 
-#create week04 direct
+#create week04 directory if it doesn´t exist to avoid errors
