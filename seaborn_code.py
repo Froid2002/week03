@@ -20,5 +20,6 @@ my_fig1 = plt.figure(figsize=(15, 5))
 plot1 = my_fig1.add_subplot(1, 2, 3)
 plot2 = my_fig1.add_subplot(1, 2, 2)
 
-
+#Drawing stripplot to see the points by day
+sns.sc
 
