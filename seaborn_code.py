@@ -12,3 +12,4 @@ df_tips = sns.load_dataset("tips")
 
 #check the first few rows to see the data sctruture
 print(df_tips.head())
+df_tips.info()
