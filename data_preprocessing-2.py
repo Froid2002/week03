@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 
 import numpy as np
 import pandas as pd
@@ -7,33 +7,33 @@ from sklearn.impute import SimpleImputer
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import OrdinalEncoder
 
-# 1. Loading the data
-# Trying to read the housing csv file
+#1. Loading the data
+#Trying to read the housing csv file
 try:
     data_path = './week04/housing.csv'
     my_housing = pd.read_csv(data_path)
 except:
-    # If the first path fails, try local directory
+    #If the first path fails, try local directory
     my_housing = pd.read_csv('./housing.csv')
 
-# 2. Creating training and test sets
-# I need to categorize income to split the data correctly
+#2. Creating training and test sets
+#I need to categorize income to split the data correctly
 my_housing["income_cat"] = pd.cut(my_housing["median_income"],
                                   bins=[0., 1.5, 3.0, 4.5, 6., np.inf],
                                   labels=[1, 2, 3, 4, 5])
 
-# Stratified split to keep the same proportion of income categories
+#Stratified split to keep the same proportion of income categories
 train_set, test_set = train_test_split(
     my_housing, test_size=0.2, stratify=my_housing["income_cat"], random_state=42)
 
-# Removing the temp category column after splitting
+#Removing the temp category column after splitting
 for dataset in (train_set, test_set):
     dataset.drop("income_cat", axis=1, inplace=True)
 
-# Separate features and labels for the model
-# Features (X)
+#Separate features and labels for the model
+#Features (X)
 housing_features = train_set.drop("median_house_value", axis=1)
-# Target Labels (y)
+#Target Labels (y)
 housing_target = train_set["median_house_value"].copy()
 
 
