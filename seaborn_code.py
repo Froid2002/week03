@@ -17,5 +17,5 @@ df_tips.info()
 #Part 1
 #Creating a figure with 2 areas (Subplots)
 my_fig1 = plt.figure(figsize=(15, 5))
-plot1 = 
+plot1 = my_fig1.add_subplot(1, 2, 3)
 
