@@ -43,43 +43,43 @@ missing_data_rows = housing_features.isnull().any(axis=1)
 print("Rows with missing values:")
 print(housing_features.loc[missing_data_rows].head())
 
-# Using SimpleImputer to fill gaps with the median value
+#Using SimpleImputer to fill gaps with the median value
 my_imputer = SimpleImputer(strategy="median")
 
-# We only work with numbers for the imputer
+#We only work with numbers for the imputer
 housing_only_nums = housing_features.select_dtypes(include=[np.number])
 
-# Training the imputer
+#Training the imputer
 my_imputer.fit(housing_only_nums)
 
-# Comparing imputer results with manual median calculation
+#Comparing imputer results with manual median calculation
 print("Imputer stats:", my_imputer.statistics_)
 print("Manual median:", housing_only_nums.median().values)
 
-# Filling the missing values in the dataset
+#Filling the missing values in the dataset
 transformed_values = my_imputer.transform(housing_only_nums)
 
-# Putting the data back into a clean DataFrame
+#Putting the data back into a clean DataFrame
 housing_cleaned = pd.DataFrame(transformed_values, 
                                columns=housing_only_nums.columns,
                                index=housing_only_nums.index)
 
 
-# 4. Removing Outliers (Bad data points)
+#4. Removing Outliers (Bad data points)
 # Using Isolation Forest to find weird data
 iso_forest = IsolationForest(random_state=42)
 is_outlier = iso_forest.fit_predict(transformed_values)
 
-# Keeping only the normal rows (where result is 1)
+#Keeping only the normal rows (where result is 1)
 housing_final = housing_features.iloc[is_outlier == 1]
 labels_final = housing_target.iloc[is_outlier == 1]
 
 
-# 5. Handling Text/Categorical columns
+#5. Handling Text/Categorical columns
 # Focus on the 'ocean_proximity' column
 housing_category_col = housing_final[["ocean_proximity"]]
 
-# Converting text categories into numbers (0, 1, 2...)
+#Converting text categories into numbers (0, 1, 2...)
 my_encoder = OrdinalEncoder()
 encoded_categories = my_encoder.fit_transform(housing_category_col)
 
