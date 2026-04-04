@@ -8,3 +8,4 @@ import os
 if not os.path.exists("./week04"): os.makedirs("./week04")
 
 #Load the dataset from seaborn library 
+df_tips = sns.load_dataset("tips")
