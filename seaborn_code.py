@@ -9,3 +9,6 @@ if not os.path.exists("./week04"): os.makedirs("./week04")
 
 #Load the dataset from seaborn library 
 df_tips = sns.load_dataset("tips")
+
+#check the first few rows to see the data sctruture
+print(df_tips.head())
